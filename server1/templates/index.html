@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TokoKu</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        .centered-title {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="centered-title">TokoKu</h1>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="provinces-tab" data-toggle="tab" href="#provinces" role="tab" aria-controls="provinces" aria-selected="true">Provinces</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="products-tab" data-toggle="tab" href="#products" role="tab" aria-controls="products" aria-selected="false">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="order-tab" data-toggle="tab" href="#order" role="tab" aria-controls="order" aria-selected="false">Order</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="provinces" role="tabpanel" aria-labelledby="provinces-tab">
+                <h3 class="mt-3">Load Provinces</h3>
+                <button id="loadProvinces" class="btn btn-primary">Load Provinces</button>
+                <div id="provincesResult" class="mt-3"></div>
+            </div>
+            <div class="tab-pane fade" id="products" role="tabpanel" aria-labelledby="products-tab">
+                <h3 class="mt-3">Load Product</h3>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productId">Product ID</label>
+                        <input type="text" class="form-control" id="productId" placeholder="Enter product ID">
+                    </div>
+                    <button type="button" id="loadProduct" class="btn btn-primary">Load Product</button>
+                </form>
+                <div id="productResult" class="mt-3"></div>
+            </div>
+            <div class="tab-pane fade" id="order" role="tabpanel" aria-labelledby="order-tab">
+                <h3 class="mt-3">Place Order</h3>
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="orderIdProduk">Product ID</label>
+                        <input type="text" class="form-control" id="orderIdProduk" placeholder="Enter product ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderJumlah">Quantity</label>
+                        <input type="text" class="form-control" id="orderJumlah" placeholder="Enter quantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderKota">City ID</label>
+                        <input type="text" class="form-control" id="orderKota" placeholder="Enter city ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderKurir">Courier</label>
+                        <input type="text" class="form-control" id="orderKurir" placeholder="Enter courier name">
+                    </div>
+                    <div class="form-group">
+                        <label for="orderService">Service</label>
+                        <input type="text" class="form-control" id="orderService" placeholder="Enter service type">
+                    </div>
+                    <button type="button" id="placeOrder" class="btn btn-primary">Place Order</button>
+                </form>
+                <div id="orderResult" class="mt-3"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
